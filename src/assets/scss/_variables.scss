@@ -1,0 +1,60 @@
+// color varibles
+
+$white: #FFFFFF;
+$black: #000000;
+
+$primary-50: #F2F2F2;
+$primary-100: #C4D2DA;
+$primary-200: #AECADA;
+$primary-300: #83BBDA;
+$primary-400: #6DB3DA;
+$primary-500: #57ACDA;
+$primary-600: #041B4D;
+$primary-700: #0E75AD;
+$primary-800: #086699;
+$primary-900: #043652;
+
+$accent: #E8BA04;
+
+$gray-100: #F9FAFB;
+$gray-200: #EEEEEE;
+$gray-300: #888888;
+$gray-600: #3E3E3E;
+$gray-900: #232323;
+
+$error: #CB3A31;
+$success: #33895e;
+$warning: #CD7C2E;
+
+// media query
+$breakpoints: (
+  "phone": 400px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-wide": 1024px,
+  "desktop": 1148px,
+  "desktop-wide": 1440px,
+);
+
+/*
+Sample query
+
+@include mq("desktop", max) {
+  
+}
+
+*/
+
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}

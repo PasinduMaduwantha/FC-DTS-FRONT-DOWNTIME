@@ -1,0 +1,1145 @@
+@import 'src/assets/scss/prefix';
+@import 'src/assets/scss/variables';
+
+.step-section {
+  padding: 16px;
+
+  @include mq("tablet", max) {
+    padding: 16px 8px;
+  }
+}
+
+.step-section-title {
+  display: flex;
+  border-bottom: 1px solid $primary-100;
+  padding-bottom: 16px;
+
+  .title-container {
+    width: calc(100% - 120px);
+  }
+
+  .title-action-container {
+    width: 150px;
+
+    button {
+      float: right;
+    }
+  }
+
+  h2 {
+    margin: 0;
+    margin-bottom: 4px;
+    @extend .heading4-bold;
+    color: $primary-600;
+
+    @include mq("tablet", max) {
+      font-size: 22px;
+    }
+  }
+
+  p {
+    margin: 0;
+    @extend .paragraph2-regular;
+    color: $gray-300;
+  }
+}
+
+// Form styles
+.form {
+  padding: 16px 0;
+}
+
+.form-group {
+  margin-bottom: 24px;
+
+  label {
+    @extend .paragraph2-bold;
+    color: $gray-600;
+
+    .number {
+      // min-width: 24px;
+      display: inline-block;
+    }
+
+    button.info {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+
+      i {
+        vertical-align: middle;
+        display: inline-flex;
+        color: $primary-600;
+      }
+    }
+  }
+
+  .error-message {
+    padding-left: 26px;
+    color: $error;
+    display: none;
+  }
+
+  &.error {
+    label {
+      color: $error;
+    }
+
+    .form-input {
+      input {
+        border-color: $error;
+        color: $error;
+      }
+    }
+
+    .error-message {
+      display: block;
+    }
+  }
+
+  .form-input {
+    padding-left: 26px;
+
+    @include mq("phone", max) {
+      padding-left: 8px;
+    }
+
+    .alert {
+      margin-top: 4px;
+    }
+
+    input {
+      position: relative;
+      width: 300px;
+      padding: 8px 12px;
+      @extend .paragraph2-regular;
+      color: $gray-600;
+      border-radius: 4px;
+      border: 1px solid $gray-300;
+
+      @include mq("phone", max) {
+        width: 100%;
+      }
+
+      &:disabled {
+        border-color: #d7d7d7;
+        color: #9c9c9c;
+        background-color: $gray-200;
+        cursor: default;
+      }
+    }
+
+    textarea {
+      position: relative;
+      width: 300px;
+      padding: 8px 12px;
+      @extend .paragraph2-regular;
+      color: $gray-600;
+      border-radius: 4px;
+      border: 1px solid $gray-300;
+
+      @include mq("phone", max) {
+        width: 100%;
+      }
+
+      &:disabled {
+        border-color: #d7d7d7;
+        color: #9c9c9c;
+        cursor: default;
+      }
+    }
+
+    // &.with-prefix {
+    //   position: relative;
+
+    //   .prefix {
+    //     position: absolute;
+    //     top: 8px;
+    //     left: 36px;
+    //     color: $gray-300;
+    //     z-index: 1;
+
+    //   }
+
+    //   input {
+    //     padding-left: 44px;
+    //   }
+    // }
+
+    &.datepicker-input {
+      input {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE5LjIgMjEuMUg1QzMuOSAyMS4xIDMgMjAuMiAzIDE5LjFWNy4wOTk5OEMzIDUuOTk5OTggMy45IDUuMDk5OTggNSA1LjA5OTk4SDE5LjJDMjAuMyA1LjA5OTk4IDIxLjIgNS45OTk5OCAyMS4yIDcuMDk5OThWMTkuMkMyMS4yIDIwLjIgMjAuMyAyMS4xIDE5LjIgMjEuMVpNNSA3LjA5OTk4VjE5LjJIMTkuMlY3LjA5OTk4SDVaIiBmaWxsPSIjMjMyMzIzIi8+CjxwYXRoIGQ9Ik0xNyAzSDE1VjUuMDk3NjZIMTdWM1oiIGZpbGw9IiMyMzIzMjMiLz4KPHBhdGggZD0iTTkgM0g3VjUuMDk3NjZIOVYzWiIgZmlsbD0iIzIzMjMyMyIvPgo8cGF0aCBkPSJNOSAxMEg3VjEySDlWMTBaIiBmaWxsPSIjMjMyMzIzIi8+CjxwYXRoIGQ9Ik0xMyAxMEgxMVYxMkgxM1YxMFoiIGZpbGw9IiMyMzIzMjMiLz4KPHBhdGggZD0iTTE3IDEwSDE1VjEySDE3VjEwWiIgZmlsbD0iIzIzMjMyMyIvPgo8cGF0aCBkPSJNOSAxNC4xSDdWMTYuMUg5VjE0LjFaIiBmaWxsPSIjMjMyMzIzIi8+CjxwYXRoIGQ9Ik0xMyAxNC4xSDExVjE2LjFIMTNWMTQuMVoiIGZpbGw9IiMyMzIzMjMiLz4KPHBhdGggZD0iTTE3IDE0SDE1VjE2SDE3VjE0WiIgZmlsbD0iIzIzMjMyMyIvPgo8L3N2Zz4K");
+        background-repeat: no-repeat;
+        background-position-x: calc(100% - 8px);
+        background-position-y: 8px;
+
+        &:disabled {
+          border-color: #d7d7d7;
+          color: #9c9c9c;
+          cursor: default;
+        }
+      }
+    }
+
+  }
+
+  .form-select {
+    // margin-top: 8px;
+    // padding-left: 26px;
+
+    select {
+      position: relative;
+      width: 300px;
+      padding: 8px 12px;
+      @extend .paragraph2-regular;
+      color: $gray-600;
+      border-radius: 4px;
+      -moz-appearance: none;
+      /* Firefox */
+      -webkit-appearance: none;
+      /* Safari and Chrome */
+      appearance: none;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEzLjE3MkwxNi45NSA4LjIyMjA1TDE4LjM2NCA5LjYzNjA1TDEyIDE2TDUuNjM2IDkuNjM2MDVMNy4wNSA4LjIyMjA1TDEyIDEzLjE3MloiIGZpbGw9IiMyMzIzMjMiLz4KPC9zdmc+Cg==");
+      background-repeat: no-repeat;
+      background-position-x: calc(100% - 8px);
+      background-position-y: 5px;
+
+      @include mq("phone", max) {
+        width: 100%;
+      }
+
+      &:disabled {
+        background: #eeeeee;
+        border-color: #d7d7d7;
+        color: #9c9c9c;
+        cursor: default;
+      }
+    }
+
+    .select-box {
+      width: 324px;
+      position: relative;
+      padding-left: 26px;
+
+      @include mq("phone", max) {
+        padding-left: 8px;
+        width: 100%;
+      }
+
+      .ng-select {
+        color: $gray-600;
+        @extend .paragraph2-regular;
+
+        .ng-arrow-wrapper .ng-arrow {
+          border: none !important;
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEzLjE3MkwxNi45NSA4LjIyMjA1TDE4LjM2NCA5LjYzNjA1TDEyIDE2TDUuNjM2IDkuNjM2MDVMNy4wNSA4LjIyMjA1TDEyIDEzLjE3MloiIGZpbGw9IiMyMzIzMjMiLz4KPC9zdmc+Cg==");
+          background-repeat: no-repeat;
+          // background-position-x: calc(100% - 8px);
+          // background-position-y: 5px;
+          width: 24px;
+          height: 24px;
+        }
+
+        &.ng-select-opened > .ng-select-container .ng-arrow {
+          transform: rotateX(180deg);
+        }
+
+        .ng-arrow-wrapper {
+          margin-right: 7px;
+          padding-top: 4px;
+        }
+
+        .ng-select-container {
+          border-color: $gray-300;
+          height: 44px;
+        }
+
+        .ng-dropdown-panel {
+          border-color: $gray-300;
+        }
+      }
+    }
+  }
+}
+
+.step-footer {
+  margin-top: 24px;
+  border-top: 1px solid $primary-100;
+  padding-top: 24px;
+  // padding-left: 26px;
+}
+
+.n-btn {
+  padding: 8px 20px;
+  @extend .paragraph2-bold;
+  border-radius: 2px;
+  border: 1px solid $white;
+  cursor: pointer;
+  min-width: 140px;
+
+  @include mq("phablet", max) {
+    min-width: unset;
+  }
+
+  &.img-icon-btn {
+    img {
+      width: 16px;
+      vertical-align: text-top;
+    }
+  }
+
+  i {
+    font-size: 20px;
+    vertical-align: middle;
+  }
+
+  &.left-icon {
+    padding: 8px 20px 4px 12px;
+    @include mq("phablet", max) {
+      padding: 8px 12px 4px 8px;
+    }
+  }
+
+  &.right-icon {
+    padding: 8px 12px 4px 20px;
+  }
+
+  @include mq("desktop", max) {
+    padding: 4px 16px;
+    font-size: 14px;
+  }
+
+  &.primary-btn {
+    color: $white;
+    background-color: $primary-600;
+    border: 1px solid $primary-600;
+  }
+
+  &.secondary-btn {
+    color: $primary-600;
+    background: $white;
+    border: 1px solid $primary-200;
+  }
+
+  &.bg-less {
+    background: none;
+    color: $gray-600;
+    border: none;
+
+    &:hover {
+      background: $gray-100;
+    }
+  }
+
+  &:disabled {
+    background-color: $primary-50;
+    color: #d3c9c9;
+    border-color: $primary-50;
+    cursor: default;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+}
+
+// Radio button design
+.form-group {
+  .vertical-checkbox-list {
+    margin-left: 26px;
+    margin-top: 8px;
+
+    @include mq("phone", max) {
+      margin-left: 8px;
+    }
+  }
+
+  &.sp-title {
+    position: relative;
+    background-color: $gray-200;
+    padding: 4px 12px;
+    padding-bottom: 2px;
+    padding-left: 28px;
+    color: $gray-600;
+    @extend .subheading-bold;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 16px;
+      width: 3px;
+      height: 20px;
+      background-color: $gray-600;
+    }
+
+    .info {
+      height: 24px;
+      line-height: 20px;
+    }
+  }
+
+  // CheckBox styles
+  /* The container */
+  .checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    @extend .paragraph2-regular;
+    color: $gray-600;
+  }
+
+  /* Hide the browser's default checkbox */
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkboxmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: $white;
+    border-radius: 4px;
+    border: 1px solid $primary-600;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .checkbox-container:hover input ~ .checkboxmark {
+    background-color: $primary-50;
+  }
+
+  .checkbox-container input:disabled ~ .checkboxmark {
+    background-color: $white;
+    border-color: $gray-300 !important;
+  }
+
+  .checkbox-container input:disabled + span {
+    color: $gray-200;
+    cursor: default;
+  }
+
+  .checkbox-container input:disabled ~ span {
+    color: $gray-200;
+    cursor: default;
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  .checkbox-container input:checked ~ .checkboxmark {
+    background-color: $primary-600;
+  }
+
+  .checkbox-container input:checked:disabled ~ .checkboxmark {
+    background-color: #b4b4b4;
+    cursor: default;
+  }
+
+  /* Create the checkboxmark/indicator (hidden when not checked) */
+  .checkboxmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkboxmark when checked */
+  .checkbox-container input:checked ~ .checkboxmark:after {
+    display: block;
+  }
+
+  /* Style the checkboxmark/indicator */
+  .checkbox-container .checkboxmark:after {
+    top: 3px;
+    left: 8px;
+    width: 6px;
+    height: 12px;
+    border: solid $white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  // Radio Burron styles
+  .vertical-radio-btn-list {
+    margin-left: 26px;
+  }
+
+  .horizontal-radio-btn-list {
+    margin-left: 26px;
+    width: 100%;
+    display: inline-block;
+
+    @include mq("phone", max) {
+      margin-left: 8px;
+    }
+
+    label.radio-container {
+      float: left;
+      margin-right: 36px;
+
+      @include mq("phone", max) {
+        margin-right: 28px;
+      }
+    }
+  }
+
+  /* The container */
+  label.radio-container {
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    @extend .paragraph2-regular;
+    color: $gray-600;
+
+  }
+
+  /* Hide the browser's default radio button */
+  .radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: $white;
+    border-radius: 50%;
+    border: 1px solid $primary-600;
+  }
+
+  .radio-container input:disabled ~ .checkmark {
+    background-color: white;
+    border: 1px solid #b8b8b8;
+    cursor: default;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .radio-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  .radio-container:hover input:disabled ~ .checkmark {
+    background-color: white;
+    cursor: default;
+  }
+
+  /* When the radio button is checked, add a blue background */
+  .radio-container input:checked ~ .checkmark {
+    background-color: $white;
+    border: 1px solid $primary-600;
+  }
+
+  .radio-container input:checked:disabled ~ .checkmark {
+    border: 1px solid $gray-200;
+    cursor: default;
+  }
+
+  .radio-container input:disabled ~ span {
+    color: $gray-300;
+    cursor: default;
+  }
+
+  .radio-container input:checked ~ span {
+    @extend .paragraph2-bold;
+  }
+
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the indicator (dot/circle) when checked */
+  .radio-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .radio-container input:checked:disabled ~ .checkmark:after {
+    background-color: #b6b6b6;
+    cursor: default;
+  }
+
+  /* Style the indicator (dot/circle) */
+  .radio-container .checkmark:after {
+    top: 2px;
+    left: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $primary-600;
+  }
+}
+
+.sp-notice {
+  p {
+    @extend .paragraph3-regular;
+    color: $gray-300;
+
+    i {
+      color: $gray-600;
+      font-size: 20px;
+      margin-right: 8px;
+      display: inline-flex;
+      vertical-align: sub;
+    }
+  }
+}
+
+.form-sub-heading {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  @extend .subheading-bold;
+}
+
+.note {
+  padding-left: 26px;
+
+  @include mq("phone", max) {
+    padding-left: 8px;
+  }
+
+  p {
+    @extend .caption-regular;
+    color: $gray-300;
+    margin: 0;
+
+    span {
+      @extend .caption-bold;
+      color: $gray-600;
+    }
+  }
+}
+
+// Image Upload styles
+
+.image-upload {
+  width: 240px;
+  margin-left: 26px;
+  margin-top: 8px;
+  text-align: center;
+
+  @include mq("phone", max) {
+    margin-left: 8px;
+  }
+
+  .upload-label {
+    @extend .paragraph2-regular;
+    margin-bottom: 0;
+  }
+}
+
+.normal-upload {
+  position: relative;
+  width: 240px;
+  height: 160px;
+  border: 1px dashed $primary-600;
+  border-radius: 8px;
+
+  .upload-details {
+    text-align: center;
+    margin: 24px 8px;
+
+    i.icon {
+      font-size: 48px;
+      color: $primary-600;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      display: block;
+      margin: auto;
+    }
+
+    h6 {
+      @extend .subheading-bold;
+      color: $gray-600;
+      margin: 0;
+    }
+
+    .choose-or-drag {
+      color: $primary-600;
+
+      span {
+        @extend .paragraph2-bold;
+
+      }
+
+      @extend .paragraph2-regular;
+
+    }
+
+    p {
+      @extend .caption-regular;
+      color: $gray-300;
+      margin-bottom: 8px;
+    }
+  }
+
+  .reset-upload {
+    position: absolute;
+    background-color: $primary-600;
+    width: 24px;
+    height: 24px;
+    top: -12px;
+    right: -12px;
+    border-radius: 12px;
+    text-align: center;
+    padding: 2px;
+    color: $white;
+    z-index: 3;
+    display: none;
+
+    &.show {
+      display: block;
+
+      &.disabled {
+        display: none;
+      }
+    }
+  }
+
+  input {
+    // visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+  }
+
+  .preview-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: $white;
+    z-index: 2;
+    border-radius: 8px;
+    text-align: center;
+
+    .actions {
+      position: absolute;
+      display: none;
+      z-index: 4;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+
+      a {
+        padding: 8px 10px;
+        display: inline-block;
+        text-decoration: none;
+        color: $primary-600;
+        cursor: pointer;
+        @extend .paragraph2-regular;
+
+        i {
+          font-size: 20px;
+          vertical-align: middle;
+          line-height: 20px;
+        }
+
+        &.disabled {
+          display: none;
+        }
+      }
+    }
+
+    &:hover {
+      .actions {
+        display: block;
+      }
+    }
+  }
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 0;
+    border-radius: 8px;
+    margin: auto;
+  }
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .normal-upload .preview-img .actions {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, .8);
+  }
+}
+
+// Toggle switch styles
+.vertical-toggle-list {
+  margin-top: 8px;
+  margin-left: 26px;
+
+  @include mq("phone", max) {
+    margin-left: 8px;
+  }
+}
+
+.toggle-switch {
+  margin-bottom: 8px;
+
+  .toggle-label {
+    margin-left: 24px;
+    @extend .paragraph2-regular;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 20px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 4px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 0px;
+    bottom: -4px;
+    background-color: $gray-300;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.237602);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: rgba($primary-600, .4);
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px $primary-600;
+  }
+
+  input:checked + .slider:before {
+    background-color: $primary-600;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.237602);
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+}
+
+// custom modal scss styles
+.modal-dialog {
+  .modal-content {
+    .modal-header {
+      border-bottom: none;
+
+      h4.modal-title {
+        @extend .subheading-bold;
+        color: $primary-600;
+      }
+
+      button {
+        outline: none;
+      }
+    }
+
+    .modal-footer {
+      border-top: none;
+    }
+  }
+}
+
+// Date picker SCSS
+.owl-dt-calendar-table .owl-dt-calendar-header .owl-dt-weekdays th {
+  font-family: rFont;
+}
+
+.owl-dt-calendar-table .owl-dt-calendar-cell-content {
+  font-family: rFont;
+}
+
+.owl-dt-control-button .owl-dt-control-button-content {
+  font-family: rFont;
+}
+
+.owl-dt-calendar-multi-year-view .owl-dt-calendar-table .owl-dt-calendar-header th {
+  font-family: boFont;
+}
+
+.owl-dt-calendar-table .owl-dt-calendar-cell-selected {
+  background-color: $primary-600;
+}
+
+// Image POPOVER design SCSS styles
+.popover {
+  box-shadow: 2px 4px 20px 4px rgb(106 106 106 / 16%);
+
+  .popover-header {
+    background-color: $white;
+  }
+}
+
+.image-popover {
+
+  ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 12px;
+
+    li {
+      width: 120px;
+      // height: 120px;
+      float: left;
+      text-align: center;
+
+      .icon {
+        width: 48px;
+        height: 48px;
+        margin: auto;
+        text-align: center;
+
+        img {
+          width: 36px;
+          height: 36px;
+        }
+      }
+
+      p {
+        @extend .caption-regular;
+        color: $gray-300;
+      }
+    }
+
+    &.proof {
+      li {
+        .icon {
+          width: 80px;
+          height: 60px;
+
+          img {
+            width: 80px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-body {
+  p.modal-para {
+    @extend .paragraph2-regular;
+    color: $gray-300;
+  }
+}
+
+.loop-content {
+  position: relative;
+  border: 1px solid $gray-300;
+  padding: 16px;
+  border-radius: 8px;
+
+  @include mq("phone", max) {
+    padding: 16px 8px;
+  }
+}
+
+.nominee-count {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  padding: 5px 12px;
+  font-size: 15px;
+  background-color: #d3c9c9;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.modal .modal-body {
+  padding: 0.5rem 1rem;
+}
+
+.modal-open .modal {
+  z-index: 10000;
+}
+
+.form-group .alert.alert-danger {
+  margin-left: 26px;
+  max-width: 300px;
+  background-color: rgba($color: $error, $alpha: 0.1);
+  color: $error;
+  @extend .paragraph3-regular;
+  margin-top: 2px;
+  padding: 6px 16px;
+
+  @include mq("phone", max) {
+    margin-left: 8px;
+    max-width: none;
+  }
+
+  &.full-width {
+    max-width: 100%;
+  }
+}
+
+.ngx-otp-input-box {
+  .ngx-otp-input {
+    border-color: $gray-300 !important;
+  }
+}
+
+// Image capture - start
+
+.image-capture-container {
+  width: 100%;
+
+  .webcam-cont {
+    width: 100%;
+
+    video {
+      width: calc(498px - 2rem);
+      height: 350px;
+    }
+  }
+
+  .capture-actions {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+    }
+
+    .preview-img {
+      height: 80px;
+    }
+  }
+
+}
+
+.view-image-container {
+  width: 100%;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    margin: auto;
+  }
+}
+
+.popover-body {
+  p {
+    @extend .paragraph2-regular;
+    margin-bottom: 8px;
+  }
+}
+
+.ng2-pdf-viewer-container .pdfViewer {
+  overflow: hidden;
+}
+
+.separate-dial-code {
+  @include mq("phone", max) {
+    width: 100%;
+  }
+}
+
+// Toaster message styles
+.toast-container {
+  .ngx-toastr {
+    border-width: 1px;
+    border-style: solid;
+    padding: 8px 16px 8px 52px !important;
+    border-radius: 8px !important;
+
+    .toast-close-button {
+      color: $gray-300;
+    }
+
+    &.toast-error {
+      border-color: $error;
+      background-color: white;
+      background-image: url(/assets/images/svg/cross-red.svg);
+
+      .toast-title {
+        color: $error;
+      }
+
+      .toast-message {
+        color: $gray-600;
+      }
+    }
+
+    &.toast-success {
+      border-color: $success;
+      background-color: white;
+      background-image: url(/assets/images/svg/tick-green.svg);
+
+      .toast-title {
+        color: $success;
+      }
+
+      .toast-message {
+        color: $gray-600;
+      }
+    }
+  }
+}
